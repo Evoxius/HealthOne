@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HealthOne Recepten{% endblock %}
+
+{% block body %}
+  {% if recepten %}
+    <table id="recepten" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Recept ID</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for recept in recepten %}
+          <tr>
+            <td>{{ recept.id }}</td>
+            <td>
+              <a href="/recept/{{ recept.id }}" class="btn btn-dark">Show</a>
+              <a href="/recept/edit/{{ recept.id }}" class="btn btn-light">Edit</a>
+              <a href="#" class="btn btn-danger delete-recept" data-id="{{ recept.id }}">Delete</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No recepten to display</p>
+  {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+  <script src="/js/mainFifth.js"></script>
+{% endblock %}

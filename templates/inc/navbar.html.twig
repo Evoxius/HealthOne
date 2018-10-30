@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3"style="flex-shrink: 0;">
+<div class="container">
+  <a href="/" class="navbar-brand"><img src="images/healthone.png" style="margin-right:20px;" alt="Logo van HealthOne">HealthOne</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
+    <span class="navbar-toggle-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="mobile-nav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a href="/" class="nav-link">Home</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="{{ path('contact') }}">Contact</a>
+      </li>
+      <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Services
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/medicijn">Medicijnen beheer</a>
+                        <a class="dropdown-item" href="/arts">Artsen beheer</a>
+                        <a class="dropdown-item" href="/patient">Patienten beheer</a>
+                        <a class="dropdown-item" href="/recept">Recepten beheer</a>
+                    </div>
+                </li>
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        New
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a href="/medicijn/new" class="dropdown-item">New Medicijn</a>
+                         <a href="/arts/new" class="dropdown-item">New Arts</a>
+                         <a href="/patient/new" class="dropdown-item">New Patient</a>
+                       <a href="/recept/new" class="dropdown-item">New Recept</a>
+                    </div>
+                </li>
+      <li class="nav-item">
+        <a href="/login" class="nav-link">Login</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>

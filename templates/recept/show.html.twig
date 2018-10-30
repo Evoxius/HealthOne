@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ recept.id }}{% endblock %}
+
+
+{% block body %}
+ <h1>{{ recept.id }}</h1>
+ <hr>
+ <p><b>ID: </b>{{ recept.id }}</p>
+ <p><b>Patientid: </b> {{ recept.patientid }}</p>
+ <p><b>Medicijnid: </b> {{ recept.medicijnid }}</p>
+ <p><b>Aantal: </b> {{ recept.aantal }}</p>
+ <p><b>Hoelang: </b> {{ recept.hoelang }}</p>
+ <p><b>Herhaling: </b> {{ recept.herhaling }}</p>
+ <p><b>Uitgeschreven: </b> {{ recept.uitgeschreven }}</p>
+ <p><b>Dokterid: </b> {{ recept.dokterid }}</p>
+ <p><b>opgehaald: </b> {{ recept.opgehaald }}</p>
+ <hr>
+ <a href="/recept">Go Back</a>
+{% endblock %}

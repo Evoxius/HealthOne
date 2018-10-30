@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ patient.klantnummer }}{% endblock %}
+
+
+{% block body %}
+ <h1>{{ patient.klantnummer }}</h1>
+ <hr>
+ <p><b>ID: </b>{{ patient.id }}</p>
+ <p><b>Voornaam: </b> {{ patient.voornaam }}</p>
+ <p><b>Tussenvoegsel: </b> {{ patient.tussenvoegsel }}</p>
+ <p><b>Achternaam: </b> {{ patient.achternaam }}</p>
+ <p><b>Klantnummer: </b> {{ patient.klantnummer }}</p>
+ <p><b>Adres: </b> {{ patient.adres }}</p>
+ <p><b>Postcode: </b> {{ patient.postcode }}</p>
+ <p><b>Stad: </b> {{ patient.stad }}</p>
+ <p><b>Email: </b> {{ patient.email }}</p>
+ <p><b>Telefoonnummer: </b> {{ patient.telefoonnummer }}</p>
+ <p><b>Dokterid: </b> {{ patient.dokterid }}</p>
+ <hr>
+ <a href="/patient">Go Back</a>
+{% endblock %}

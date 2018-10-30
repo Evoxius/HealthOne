@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HealthOne Artsen{% endblock %}
+
+{% block body %}
+  {% if artsen %}
+    <table id="artsen" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Arts Naam</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for arts in artsen %}
+          <tr>
+            <td>{{ arts.voornaam }}</td>
+            <td>
+              <a href="/arts/{{ arts.id }}" class="btn btn-dark">Show</a>
+              <a href="/arts/edit/{{ arts.id }}" class="btn btn-light">Edit</a>
+              <a href="#" class="btn btn-danger delete-arts" data-id="{{ arts.id }}">Delete</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No artsen to display</p>
+  {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+  <script src="/js/mainThird.js"></script>
+{% endblock %}

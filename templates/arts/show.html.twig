@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ arts.voornaam }}{% endblock %}
+
+
+{% block body %}
+ <h1>{{ arts.voornaam }}</h1>
+ <hr>
+ <p><b>ID: </b>{{ arts.id }}</p>
+ <p><b>Voornaam: </b> {{ arts.voornaam }}</p>
+ <p><b>Tussenvoegsel: </b> {{ arts.tussenvoegsel }}</p>
+ <p><b>Achternaam: </b> {{ arts.achternaam }}</p>
+ <p><b>Specialiteit: </b> {{ arts.specialiteit }}</p>
+ <p><b>Adres: </b> {{ arts.adres }}</p>
+ <p><b>Postcode: </b> {{ arts.postcode }}</p>
+ <p><b>Stad: </b> {{ arts.stad }}</p>
+ <p><b>Email: </b> {{ arts.email }}</p>
+ <p><b>Telefoonnummer: </b> {{ arts.telefoonnummer }}</p>
+ <hr>
+ <a href="/arts">Go Back</a>
+{% endblock %}
