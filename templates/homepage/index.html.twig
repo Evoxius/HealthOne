@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+{% block title %}HealthOne{% endblock %}
 
 {% block body %}
 
@@ -12,7 +12,7 @@
   <p>De apotheker kan hiermee recepten bekijken en de datum van ophalen makkelijk bepalen.</p>
   <p>De verzekeringsmedewerker kan hiermee de verschillende gebruikers beheren en ook alles doen.</p>
   <p class="lead">
-    <a class="btn btn-primary btn-lg" href="/contact" role="button">Contactinformatie van het bedrijf</a>
+  <a class="btn btn-primary btn-lg" role="button" href="{{ path('logout') }}">Logout</a>
   </p>
 </div>
 {% endblock %}
