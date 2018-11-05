@@ -7,14 +7,16 @@
     <table id="patienten" class="table table-striped">
       <thead>
         <tr>
-          <th>Patient Klantnummer</th>
+          <th>Patient ID</th>
+          <th>Patient Naam</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         {% for patient in patienten %}
           <tr>
-            <td>{{ patient.klantnummer }}</td>
+            <td>{{ patient.id }}</td>
+            <td>{{ patient.voornaam }}</td>
             <td>
               <a href="/patient/{{ patient.id }}" class="btn btn-primary">Show</a>
               <a href="/patient/edit/{{ patient.id }}" class="btn btn-dark">Edit</a>
@@ -24,6 +26,14 @@
         {% endfor %}
       </tbody>
     </table>
+    
+    <p><b>Geef de ID van de patient</b></p>
+
+    <form onSubmit="return process4();">
+        <input type="text" id="url4" name="query" />
+        <input type="submit" value="go" />
+    </form>
+
   {% else %}
     <p>No patienten to display</p>
   {% endif %}
@@ -31,4 +41,5 @@
 
 {% block javascripts %}
   <script src="/js/mainFourth.js"></script>
+  <script src="/js/processInfo.js"></script>
 {% endblock %}

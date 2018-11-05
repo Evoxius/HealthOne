@@ -7,6 +7,7 @@
     <table id="medicijnen" class="table table-striped">
       <thead>
         <tr>
+          <th>Medicijn ID</th>
           <th>Medicijn Naam</th>
           <th>Actions</th>
         </tr>
@@ -14,6 +15,7 @@
       <tbody>
         {% for medicijn in medicijnen %}
           <tr>
+            <td>{{ medicijn.id }}</td>
             <td>{{ medicijn.naam }}</td>
             <td>
               <a href="/medicijn/{{ medicijn.id }}" class="btn btn-primary">Show</a>
@@ -24,6 +26,14 @@
         {% endfor %}
       </tbody>
     </table>
+
+    <p><b>Geef de ID van de medicijn</b></p>
+
+    <form onSubmit="return process();">
+        <input type="text" id="url1" name="query" />
+        <input type="submit" value="go" />
+    </form>
+  
   {% else %}
     <p>No medicijnen to display</p>
   {% endif %}
@@ -31,4 +41,5 @@
 
 {% block javascripts %}
   <script src="/js/mainSecond.js"></script>
+  <script src="/js/processInfo.js"></script>
 {% endblock %}

@@ -7,6 +7,7 @@
     <table id="artsen" class="table table-striped">
       <thead>
         <tr>
+          <th>Arts ID</th>
           <th>Arts Naam</th>
           <th>Actions</th>
         </tr>
@@ -14,6 +15,7 @@
       <tbody>
         {% for arts in artsen %}
           <tr>
+            <td>{{ arts.id }}</td>
             <td>{{ arts.voornaam }}</td>
             <td>
               <a href="/arts/{{ arts.id }}" class="btn btn-primary">Show</a>
@@ -24,6 +26,14 @@
         {% endfor %}
       </tbody>
     </table>
+
+    <p><b>Geef de ID van de arts</b></p>
+
+    <form onSubmit="return process2();">
+        <input type="text" id="url2" name="query" />
+        <input type="submit" value="go" />
+    </form>
+    
   {% else %}
     <p>No artsen to display</p>
   {% endif %}
@@ -31,4 +41,5 @@
 
 {% block javascripts %}
   <script src="/js/mainThird.js"></script>
+  <script src="/js/processInfo.js"></script>
 {% endblock %}

@@ -24,6 +24,14 @@
         {% endfor %}
       </tbody>
     </table>
+
+    <p><b>Geef de ID van de recept</b></p>
+
+    <form onSubmit="return process3();">
+        <input type="text" id="url3" name="query" />
+        <input type="submit" value="go" />
+    </form>
+
   {% else %}
     <p>No recepten to display</p>
   {% endif %}
@@ -31,4 +39,5 @@
 
 {% block javascripts %}
   <script src="/js/mainFifth.js"></script>
+  <script src="/js/processInfo.js"></script>
 {% endblock %}

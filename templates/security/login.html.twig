@@ -10,18 +10,17 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Login page</h1>
+    <h1>Login hier</h1>
 
     {% if error %} 
         <span class="error">{{ error.messageKey }}</span>
     {% endif %}
 
   <form action="{{ path('login') }}" method="POST">
-  
-    <input type="text" name="_username" value="{{ last_username }}" placeholder="Username here ...">
-  
-    <input type="password" name="_password">
-
+    <input type="text" name="_username" value="{{ last_username }}" placeholder="Gebruikersnaam hier ...">
+  <br>
+    <input type="password" name="_password" placeholder="Wachtwoord hier ...">
+  <br><br>
     <button type="submit">Login</button>
   </form>
 </div>
