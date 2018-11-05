@@ -7,3 +7,10 @@ label {
         margin-top: 150px;
     }
 }
+
+@media only screen and (min-width: 900px) {
+    #HText {
+        padding-left: 100px;
+    }
+}
+

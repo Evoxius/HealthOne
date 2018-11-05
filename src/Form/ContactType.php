@@ -14,10 +14,17 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-           ->add('name')
-           ->add('from', EmailType::class)
-           ->add('dateOfBirth', DateTimeType::class)
-           ->add('message', TextareaType::class)
+           ->add('naam')
+           ->add('email', EmailType::class)
+           ->add('datumVanGeboorte', DateTimeType::class, array(
+            'widget' => 'choice',
+            'years' => range(1902,2007),
+            'placeholder' => array(
+                'year' => 'Year', 'month' => 'Month', 'day' => 'Day',
+                'hour' => 'Hour', 'minute' => 'Minute', 'second' => 'Second',
+            )
+        ))
+           ->add('bericht', TextareaType::class)
         ;
     }
 }
