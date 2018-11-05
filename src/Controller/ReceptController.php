@@ -33,11 +33,6 @@
       $recept = new Recept();
 
       $form = $this->createFormBuilder($recept)
-      ->add('id', TextType::class, array(
-        'required' => false,
-        'label' => 'ID',
-        'attr' => array('class' => 'form-control')
-      ))
       ->add('patientid', TextType::class, array('attr' => array('class' => 'form-control')))
       ->add('medicijnid', TextType::class, array(
         'required' => false,

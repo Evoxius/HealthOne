@@ -33,11 +33,6 @@
       $arts = new Arts();
 
       $form = $this->createFormBuilder($arts)
-      ->add('id', TextType::class, array(
-        'required' => false,
-        'label' => 'ID',
-        'attr' => array('class' => 'form-control')
-      ))
       ->add('voornaam', TextType::class, array('attr' => array('class' => 'form-control')))
       ->add('tussenvoegsel', TextType::class, array(
         'required' => false,
