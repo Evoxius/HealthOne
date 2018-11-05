@@ -137,4 +137,12 @@ class Arts
     public function setTelefoonnummer($telefoonnummer) {
         $this->telefoonnummer = $telefoonnummer;
     }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
 }
+
+
