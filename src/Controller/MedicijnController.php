@@ -1,8 +1,8 @@
 <?php
   namespace App\Controller;
-
+  require __DIR__ . '../../../vendor/autoload.php';
+ 
   use App\Entity\Medicijn;
-
   use Symfony\Component\HttpFoundation\Response;
   use Symfony\Component\HttpFoundation\Request;
   use Symfony\Component\Routing\Annotation\Route;
@@ -63,6 +63,15 @@
         return $this->redirectToRoute('medicijn_list');
       }
 
+
+      $log = new Logger('addLogs');
+      $streamHandler=new StreamHandler('add.log.html', Logger::INFO);
+      $streamHandler->setFormatter(new \Monolog\Formatter\HtmlFormatter());
+      $log->pushHandler($streamHandler);
+
+      $log->info('Medicijn toegevoegd');
+    
+
       return $this->render('medicijn/new.html.twig', array(
         'form' => $form->createView()
       ));
@@ -106,6 +115,13 @@
         return $this->redirectToRoute('medicijn_list');
       }
 
+      $log = new Logger('editLogs');
+      $streamHandler=new StreamHandler('add.log.html', Logger::INFO);
+      $streamHandler->setFormatter(new \Monolog\Formatter\HtmlFormatter());
+      $log->pushHandler($streamHandler);
+
+      $log->info('Medicijn informatie veranderd');
+
       return $this->render('medicijn/edit.html.twig', array(
         'form' => $form->createView()
       ));
@@ -133,6 +149,14 @@
 
       $response = new Response();
       $response->send();
+
+      
+      $log = new Logger('removeLogs');
+      $streamHandler=new StreamHandler('add.log.html', Logger::INFO);
+      $streamHandler->setFormatter(new \Monolog\Formatter\HtmlFormatter());
+      $log->pushHandler($streamHandler);
+
+      $log->info('Medicijn verwijderd');
     }
 
     
