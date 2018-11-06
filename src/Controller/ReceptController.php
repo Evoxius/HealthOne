@@ -1,5 +1,6 @@
 <?php
   namespace App\Controller;
+  require __DIR__ . '../../../vendor/autoload.php';
 
   use App\Entity\Recept;
 
@@ -8,6 +9,9 @@
   use Symfony\Component\Routing\Annotation\Route;
   use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
   use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+  use Monolog\Logger;
+  use Monolog\Handler\StreamHandler;
 
   use Symfony\Component\Form\Extension\Core\Type\TextType;
   use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -80,6 +84,13 @@
         return $this->redirectToRoute('recept_list');
       }
 
+      $log = new Logger('addLogs');
+      $streamHandler=new StreamHandler('add.log.html', Logger::INFO);
+      $streamHandler->setFormatter(new \Monolog\Formatter\HtmlFormatter());
+      $log->pushHandler($streamHandler);
+
+      $log->info('Recept toegevoegd');
+
       return $this->render('recept/new.html.twig', array(
         'form' => $form->createView()
       ));
@@ -143,6 +154,13 @@
         return $this->redirectToRoute('recept_list');
       }
 
+      $log = new Logger('editLogs');
+      $streamHandler=new StreamHandler('add.log.html', Logger::INFO);
+      $streamHandler->setFormatter(new \Monolog\Formatter\HtmlFormatter());
+      $log->pushHandler($streamHandler);
+
+      $log->info('Recept informatie veranderd');
+
       return $this->render('recept/edit.html.twig', array(
         'form' => $form->createView()
       ));
@@ -170,6 +188,13 @@
 
       $response = new Response();
       $response->send();
+
+      $log = new Logger('removeLogs');
+      $streamHandler=new StreamHandler('add.log.html', Logger::INFO);
+      $streamHandler->setFormatter(new \Monolog\Formatter\HtmlFormatter());
+      $log->pushHandler($streamHandler);
+
+      $log->info('Recept verwijderd');
     }
 
     // /**

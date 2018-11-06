@@ -1,5 +1,6 @@
 <?php
   namespace App\Controller;
+  require __DIR__ . '../../../vendor/autoload.php';
 
   use App\Entity\Patient;
 
@@ -8,6 +9,9 @@
   use Symfony\Component\Routing\Annotation\Route;
   use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
   use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+  use Monolog\Logger;
+  use Monolog\Handler\StreamHandler;
 
   use Symfony\Component\Form\Extension\Core\Type\TextType;
   use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -88,6 +92,13 @@
         return $this->redirectToRoute('patient_list');
       }
 
+      $log = new Logger('addLogs');
+      $streamHandler=new StreamHandler('add.log.html', Logger::INFO);
+      $streamHandler->setFormatter(new \Monolog\Formatter\HtmlFormatter());
+      $log->pushHandler($streamHandler);
+
+      $log->info('Patient toegevoegd ');
+
       return $this->render('patient/new.html.twig', array(
         'form' => $form->createView()
       ));
@@ -159,6 +170,13 @@
         return $this->redirectToRoute('patient_list');
       }
 
+      $log = new Logger('editLogs');
+      $streamHandler=new StreamHandler('add.log.html', Logger::INFO);
+      $streamHandler->setFormatter(new \Monolog\Formatter\HtmlFormatter());
+      $log->pushHandler($streamHandler);
+
+      $log->info('Patient informatie veranderd ');
+
       return $this->render('patient/edit.html.twig', array(
         'form' => $form->createView()
       ));
@@ -186,6 +204,13 @@
 
       $response = new Response();
       $response->send();
+
+      $log = new Logger('removeLogs');
+      $streamHandler=new StreamHandler('add.log.html', Logger::INFO);
+      $streamHandler->setFormatter(new \Monolog\Formatter\HtmlFormatter());
+      $log->pushHandler($streamHandler);
+
+      $log->info('Patient verwijderd ');
     }
 
     // /**
