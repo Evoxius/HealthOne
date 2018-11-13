@@ -7,14 +7,14 @@
 <h1>{{ recept.id }}</h1>
 <hr>
 <p><b>ID: </b>{{ recept.id }}</p>
-<p><b>Patientid: </b> <a href="/patient/{{recept.patientid}}">{{ recept.patientid }}</a></p>
-<p><b>Medicijnid: </b> <a href="/medicijn/{{recept.medicijnid}}">{{ recept.medicijnid }}</a></p>
+<p><b>Patientid: </b> <a href="/healthone/public/patient/{{recept.patientid}}">{{ recept.patientid }}</a></p>
+<p><b>Medicijnid: </b> <a href="/healthone/public/medicijn/{{recept.medicijnid}}">{{ recept.medicijnid }}</a></p>
 <p><b>Aantal: </b> {{ recept.aantal }}</p>
 <p><b>Hoelang: </b> {{ recept.hoelang }}</p>
 <p><b>Herhaling: </b> {{ recept.herhaling }}</p>
 <p><b>Uitgeschreven: </b> {{ recept.uitgeschreven }}</p>
-<p><b>Dokterid: </b> <a href="/arts/{{recept.dokterid}}">{{ recept.dokterid }}</a></p>
+<p><b>Dokterid: </b> <a href="/healthone/public/arts/{{recept.dokterid}}">{{ recept.dokterid }}</a></p>
 <p><b>opgehaald: </b> {{ recept.opgehaald }}</p>
 <hr>
-<a href="/recept">Go Back</a>
+<a href="/healthone/public/recept">Go Back</a>
 {% endblock %}

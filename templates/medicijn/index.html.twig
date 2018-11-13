@@ -18,8 +18,8 @@
             <td>{{ medicijn.id }}</td>
             <td>{{ medicijn.naam }}</td>
             <td>
-              <a href="/medicijn/{{ medicijn.id }}" class="btn btn-primary">Show</a>
-              <a href="/medicijn/edit/{{ medicijn.id }}" class="btn btn-dark">Edit</a>
+              <a href="/healthone/public/medicijn/{{ medicijn.id }}" class="btn btn-primary">Show</a>
+              <a href="/healthone/public/medicijn/edit/{{ medicijn.id }}" class="btn btn-dark">Edit</a>
               <a href="#" class="btn btn-danger delete-medicijn" data-id="{{ medicijn.id }}">Delete</a>
             </td>
           </tr>
@@ -40,6 +40,6 @@
 {% endblock %}
 
 {% block javascripts %}
-  <script src="/js/deleteRowFirst.js"></script>
-  <script src="/js/processInfo.js"></script>
+  <script src="js/deleteRowFirst.js"></script>
+  <script src="js/processInfo.js"></script>
 {% endblock %}
