@@ -63,7 +63,6 @@
         return $this->redirectToRoute('medicijn_list');
       }
 
-
       $log = new Logger('addLogs');
       $streamHandler=new StreamHandler('add.log.html', Logger::INFO);
       $streamHandler->setFormatter(new \Monolog\Formatter\HtmlFormatter());
@@ -149,7 +148,6 @@
 
       $response = new Response();
       $response->send();
-
       
       $log = new Logger('removeLogs');
       $streamHandler=new StreamHandler('add.log.html', Logger::INFO);
@@ -158,10 +156,6 @@
 
       $log->info('Medicijn verwijderd');
     }
-
-    
-
-    
 
     // /**
     //  * @Route("/medicijn/save")
