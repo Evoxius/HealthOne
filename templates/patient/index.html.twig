@@ -20,7 +20,7 @@
             <td>
               <a href="/healthone/public/patient/{{ patient.id }}" class="btn btn-primary">Show</a>
               <a href="/healthone/public/patient/edit/{{ patient.id }}" class="btn btn-dark">Edit</a>
-              <a href="#" class="btn btn-danger delete-patient" data-id="{{ patient.id }}">Delete</a>
+              <a href="/healthone/public/patient/delete/{{ patient.id }}" class="btn btn-danger delete-patient" data-id="{{ patient.id }}">Delete</a>
             </td>
           </tr>
         {% endfor %}
