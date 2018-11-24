@@ -33,6 +33,7 @@
      * Method({"GET", "POST"})
      */
     public function new(Request $request) {
+      $this->denyAccessUnlessGranted('ROLE_VERZEKERING', null, 'User tried to access a page without having ROLE_VERZEKERING');
       $medicijn = new Medicijn();
 
       $form = $this->createFormBuilder($medicijn)
@@ -81,6 +82,7 @@
      * Method({"GET", "POST"})
      */
     public function edit(Request $request, $id) {
+      $this->denyAccessUnlessGranted('ROLE_VERZEKERING', null, 'User tried to access a page without having ROLE_VERZEKERING');
       $medicijn = new Medicijn();
       $medicijn = $this->getDoctrine()->getRepository(Medicijn::class)->find($id);
 
@@ -140,6 +142,7 @@
      * @Method({"DELETE"})
      */
     public function delete(Request $request, $id) {
+      $this->denyAccessUnlessGranted('ROLE_VERZEKERING', null, 'User tried to access a page without having ROLE_VERZEKERING');
       $medicijn = $this->getDoctrine()->getRepository(Medicijn::class)->find($id);
 
       $entityManager = $this->getDoctrine()->getManager();

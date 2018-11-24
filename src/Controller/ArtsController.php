@@ -34,6 +34,7 @@
      * Method({"GET", "POST"})
      */
     public function new(Request $request) {
+      $this->denyAccessUnlessGranted('ROLE_VERZEKERING', null, 'User tried to access a page without having ROLE_VERZEKERING');
       $arts = new Arts();
 
       $form = $this->createFormBuilder($arts)
@@ -106,6 +107,7 @@
      * Method({"GET", "POST"})
      */
     public function edit(Request $request, $id) {
+      $this->denyAccessUnlessGranted('ROLE_VERZEKERING', null, 'User tried to access a page without having ROLE_VERZEKERING');
       $arts = new Arts();
       $arts = $this->getDoctrine()->getRepository(Arts::class)->find($id);
 
@@ -190,6 +192,7 @@
      * @Method({"DELETE"})
      */
     public function delete(Request $request, $id) {
+      $this->denyAccessUnlessGranted('ROLE_VERZEKERING', null, 'User tried to access a page without having ROLE_VERZEKERING');
       $arts = $this->getDoctrine()->getRepository(Arts::class)->find($id);
 
       $entityManager = $this->getDoctrine()->getManager();
