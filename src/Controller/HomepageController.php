@@ -10,7 +10,7 @@ use Monolog\Handler\StreamHandler;
 class HomepageController extends AbstractController
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/home", name="homepage")
      */
     public function index()
     {

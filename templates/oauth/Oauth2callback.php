@@ -7,7 +7,7 @@ $client = new Google_Client();
 
 $client->setClientId("542936429191-eu265aphvc3m2967t9np9jvsmq2op16t.apps.googleusercontent.com");
 $client->setClientSecret("D4QptYuFW1M-Tdh-ocBAHL2m");
-$client->setRedirectUri('http://localhost/healthone/templates/random/oauth2callback.php');
+$client->setRedirectUri('http://localhost/healthone/templates/oauth/oauth2callback.php');
 
 
 $client->addScope("https://www.googleapis.com/auth/books");
@@ -20,6 +20,6 @@ if (!isset($_GET['code'])) {
 } else {
     $client->fetchAccessTokenWithAuthCode($_GET['code']);
     $_SESSION['access_token'] = $client->getAccessToken();
-    $redirect_uri = 'http://localhost/healthone/templates/random/index.php';
+    $redirect_uri = 'http://localhost/healthone/templates/oauth/index.php';
     header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
 }

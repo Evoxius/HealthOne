@@ -28,6 +28,6 @@ if (isset($_SESSION['access_token']) && !empty($_SESSION['access_token']))
     }
     
 } else {
-    $redirect_url = 'http://localhost/healthone/templates/random/oauth2callback.php';
+    $redirect_url = 'http://localhost/healthone/templates/oauth/oauth2callback.php';
     header('Location:'.filter_var($redirect_url, FILTER_SANITIZE_URL));
 }

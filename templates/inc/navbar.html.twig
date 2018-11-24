@@ -1,43 +1,69 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3"style="flex-shrink: 0;">
-<div class="container">
-  <a href="/healthone/public/" class="navbar-brand"><img src="{{ asset('images/healthone.png') }}" style="margin-right:20px;" alt="Logo van HealthOne">HealthOne</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark blue darken-2">
+
+  <!-- Navbar brand -->
+  <a class="navbar-brand" href="{{ asset('home') }}"><img src="{{ asset('images/healthone.png') }}" style="margin-right:20px;" alt="Logo van HealthOne"></a>
+        
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="navbar-collapse collapse" id="mobile-nav">
-    <ul class="navbar-nav ml-auto">
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a href="/healthone/public/" class="nav-link">Home</a>
-      </li>    
-       <li class="nav-item">
-        <a class="nav-link" href="{{ path('contact') }}">Contact</a>
+        <a class="nav-link" href="{{ asset('home') }}">Home
+        </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ asset('contact') }}">Contact</a>
+      </li>
+
+
+      <!-- Dropdown -->
       <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Services
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/healthone/public/medicijn">Medicijnen beheer</a>
-                        <a class="dropdown-item" href="/healthone/public/arts">Artsen beheer</a>
-                        <a class="dropdown-item" href="/healthone/public/patient">Patienten beheer</a>
-                        <a class="dropdown-item" href="/healthone/public/recept">Recepten beheer</a>
-                    </div>
-                </li>
-                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        New
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a href="/healthone/public/medicijn/new" class="dropdown-item">New Medicijn</a>
-                         <a href="/healthone/public/arts/new" class="dropdown-item">New Arts</a>
-                         <a href="/healthone/public/patient/new" class="dropdown-item">New Patient</a>
-                       <a href="/healthone/public/recept/new" class="dropdown-item">New Recept</a>
-                    </div>
-                </li>
-    </ul>
-  </div>
-</div>
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Beheer</a>
+        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{{ asset('medicijn') }}">Medicijn beheer</a>
+          <a class="dropdown-item" href="{{ asset('arts') }}">Arts beheer</a>
+          <a class="dropdown-item" href="{{ asset('patient') }}">Patient beheer</a>
+          <a class="dropdown-item" href="{{ asset('recept') }}">Recept beheer</a>
+        </div>
+      </li>
+
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">New</a>
+        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{{ asset('medicijn/new') }}">Nieuwe medicijn toevoegen</a>
+          <a class="dropdown-item" href="{{ asset('arts/new') }}">Nieuwe arts toevoegen</a>
+          <a class="dropdown-item" href="{{ asset('patient/new') }}">Nieuwe patient toevoegen</a>
+          <a class="dropdown-item" href="{{ asset('recept/new') }}">Nieuwe recept toevoegen</a>
+        </div>
+      </li>
+
+   </ul>
+
+      <!-- Icon -->
+    <ul class="navbar-nav xl-auto nav-flex-icons dropright" style="margin-right:15%;">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="fa fa-user"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item waves-effect waves-light" href="{{ path('logout') }}">Uitloggen</a>
+            </div>
+          </li>
+        </ul>
+
+
+  <!-- Collapsible content -->
+
 </nav>
+<!--/.Navbar-->

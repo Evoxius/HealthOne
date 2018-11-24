@@ -18,9 +18,9 @@
             <td>{{ arts.id }}</td>
             <td>{{ arts.voornaam }}</td>
             <td>
-              <a href="/healthone/public/arts/{{ arts.id }}" class="btn btn-primary">Show</a>
-              <a href="/healthone/public/arts/edit/{{ arts.id }}" class="btn btn-dark">Edit</a>
-              <a href="/healthone/public/arts/delete/{{ arts.id }}" class="btn btn-danger delete-arts" data-id="{{ arts.id }}">Delete</a>
+              <a href="arts/{{ arts.id }}" class="btn btn-primary">Show</a>
+              <a href="arts/edit/{{ arts.id }}" class="btn btn-dark">Edit</a>
+              <a href="arts/delete/{{ arts.id }}" class="btn btn-danger delete-arts" data-id="{{ arts.id }}">Delete</a>
             </td>
           </tr>
         {% endfor %}
@@ -40,6 +40,6 @@
 {% endblock %}
 
 {% block javascripts %}
-  <script src="js/deleteRowFourth.js"></script>
-  <script src="js/processInfo.js"></script>
+  <script src="{{ asset('js/deleteRowFourth.js') }}"></script>
+  <script src="{{ asset('js/processInfo.js') }}"></script>
 {% endblock %}

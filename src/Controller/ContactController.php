@@ -2,46 +2,18 @@
 
 namespace App\Controller;
 
-use App\Form\ContactType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
 class ContactController extends AbstractController
 {
     /**
      * @Route("/contact", name="contact")
      */
-   public function index(Request $request, \Swift_Mailer $mailer)
+    public function index()
     {
-        $form = $this->createForm(ContactType::class);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $contactFormData = $form->getData();
-
-            $message = (new \Swift_Message('You Got Mail!'))
-               ->setFrom($contactFormData['Email'])
-               ->setTo('michaelschaap123@gmail.com')
-               ->setBody(
-                   $contactFormData['Bericht'],
-                   'text/plain'
-              )
-           ;
-
-           $mailer->send($message);
-
-           $this->addFlash('success', 'It sent!');
-
-           return $this->redirectToRoute('contact');
-        }
-
         return $this->render('contact/index.html.twig', [
-            'our_form' => $form->createView(),
+            'controller_name' => 'ContactController',
         ]);
     }
 }
