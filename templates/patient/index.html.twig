@@ -20,8 +20,8 @@
       <td>
         <a href="patient/{{ patient.id }}" class="btn btn-primary">Show</a>
         {% if is_granted('ROLE_VERZEKERING') %}
-        <a href="patient/edit/{{ patient.id }}" class="btn btn-dark">Edit</a>
-        <a href="patient/delete/{{ patient.id }}" class="btn btn-danger delete-patient" data-id="{{ patient.id }}">Delete</a>
+        <a href="patient/edit/{{ patient.id }}" class="btn btn-dark" style="padding-right: 44px;">Edit</a>
+        <a href="patient/delete/{{ patient.id }}" class="btn btn-danger delete-patient" data-id="{{ patient.id }}" style="padding-right:26px;" >Delete</a>
         {% endif %}
       </td>
     </tr>

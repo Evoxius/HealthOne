@@ -20,8 +20,8 @@
       <td>
         <a href="medicijn/{{ medicijn.id }}" class="btn btn-primary">Show</a>
         {% if is_granted('ROLE_VERZEKERING') %}
-        <a href="medicijn/edit/{{ medicijn.id }}" class="btn btn-dark">Edit</a>
-        <a href="medicijn/delete/{{ medicijn.id }}" class="btn btn-danger delete-medicijn" data-id="{{ medicijn.id }}">Delete</a>
+        <a href="medicijn/edit/{{ medicijn.id }}" class="btn btn-dark" style="padding-right: 44px;">Edit</a>
+        <a href="medicijn/delete/{{ medicijn.id }}" class="btn btn-danger delete-medicijn" data-id="{{ medicijn.id }}" style="padding-right:26px;">Delete</a>
         {% endif %}
       </td>
     </tr>

@@ -20,8 +20,8 @@
       <td>
         <a href="arts/{{ arts.id }}" class="btn btn-primary">Show</a>
         {% if is_granted('ROLE_VERZEKERING') %}
-        <a href="arts/edit/{{ arts.id }}" class="btn btn-dark">Edit</a>
-        <a href="arts/delete/{{ arts.id }}" class="btn btn-danger delete-arts" data-id="{{ arts.id }}">Delete</a>
+        <a href="arts/edit/{{ arts.id }}" class="btn btn-dark" style="padding-right: 44px;">Edit</a>
+        <a href="arts/delete/{{ arts.id }}" class="btn btn-danger delete-arts" data-id="{{ arts.id }}" style="padding-right:26px;">Delete</a>
         {% endif %}
       </td>
     </tr>

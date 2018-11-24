@@ -20,10 +20,10 @@
       <td>
         <a href="recept/{{ recept.id }}" class="btn btn-primary">Show</a>
         {% if is_granted('ROLE_APOTHEKER', 'ROLE_VERZEKERING') %}
-        <a href="recept/edit/{{ recept.id }}" class="btn btn-dark">Edit</a>
+        <a href="recept/edit/{{ recept.id }}" class="btn btn-dark" style="padding-right: 44px;">Edit</a>
         {% endif %}
         {% if is_granted('ROLE_VERZEKERING') %}
-        <a href="recept/delete/{{ recept.id }}" class="btn btn-danger delete-recept" data-id="{{ recept.id }}">Delete</a>
+        <a href="recept/delete/{{ recept.id }}" class="btn btn-danger delete-recept" data-id="{{ recept.id }}" style="padding-right:26px;">Delete</a>
         {% endif %}
       </td>
     </tr>
