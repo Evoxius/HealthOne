@@ -3,47 +3,53 @@
 {% block title %}HealthOne Patienten{% endblock %}
 
 {% block body %}
-  {% if patienten %}
-    <table id="patienten" class="table table-striped">
-      <thead>
-        <tr>
-          <th>Patient ID</th>
-          <th>Patient Naam</th>
-          <th>Acties</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for patient in patienten %}
-          <tr>
-            <td>{{ patient.id }}</td>
-            <td>{{ patient.voornaam }}</td>
-            <td>
-              <a href="patient/{{ patient.id }}" class="btn btn-primary">Show</a>
-              <a href="patient/edit/{{ patient.id }}" class="btn btn-dark">Edit</a>
-              <a href="patient/delete/{{ patient.id }}" class="btn btn-danger delete-patient" data-id="{{ patient.id }}">Delete</a>
-            </td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    
-    <p><b>Geef de ID van de patient</b></p>
+{% if patienten %}
+<table id="patienten" class="table table-striped">
+  <thead>
+    <tr>
+      <th>Patient ID</th>
+      <th>Patient Naam</th>
+      <th>Acties</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patienten %}
+    <tr>
+      <td>{{ patient.id }}</td>
+      <td>{{ patient.voornaam }}</td>
+      <td>
+        <a href="patient/{{ patient.id }}" class="btn btn-primary">Show</a>
+        {% if is_granted('ROLE_VERZEKERING') %}
+        <a href="patient/edit/{{ patient.id }}" class="btn btn-dark">Edit</a>
+        <a href="patient/delete/{{ patient.id }}" class="btn btn-danger delete-patient" data-id="{{ patient.id }}">Delete</a>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
-    <form onSubmit="return process4();">
-        <input type="text" id="url4" name="query" />
-        <input type="submit" value="show" />
-    </form>
-
-  {% else %}
-    <p>No patienten to display</p>
-  {% endif %}
+{% else %}
+<p>No patienten to display</p>
+{% endif %}
 {% endblock %}
 
 {% block javascripts %}
- <script src="{{ asset('js/deleteRowThird.js') }}"></script>
-  <script src="{{ asset('js/processInfo.js') }}"></script>
-  <!-- JQuery -->
- <script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
- <!-- Bootstrap core JavaScript -->
- <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/deleteRowThird.js') }}"></script>
+<script src="{{ asset('js/processInfo.js') }}"></script>
+<!-- JQuery -->
+<script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+<!-- Bootstrap datatables JavaScript/CSS -->
+<link href="{{ asset('css/addons/datatables.min.css') }}" rel="stylesheet">
+<script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
+
+<script>
+  $(document).ready(function () {
+    $('#patienten').DataTable();
+    $('.dataTables_length').addClass('bs-select');
+  });
+</script>
+
 {% endblock %}

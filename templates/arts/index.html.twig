@@ -3,47 +3,53 @@
 {% block title %}HealthOne Artsen{% endblock %}
 
 {% block body %}
-  {% if artsen %}
-    <table id="artsen" class="table table-striped">
-      <thead>
-        <tr>
-          <th>Arts ID</th>
-          <th>Arts Naam</th>
-          <th>Acties</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for arts in artsen %}
-          <tr>
-            <td>{{ arts.id }}</td>
-            <td>{{ arts.voornaam }}</td>
-            <td>
-              <a href="arts/{{ arts.id }}" class="btn btn-primary">Show</a>
-              <a href="arts/edit/{{ arts.id }}" class="btn btn-dark">Edit</a>
-              <a href="arts/delete/{{ arts.id }}" class="btn btn-danger delete-arts" data-id="{{ arts.id }}">Delete</a>
-            </td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+{% if artsen %}
+<table id="artsen" class="table table-striped">
+  <thead>
+    <tr>
+      <th>Arts ID </th>
+      <th>Arts Naam</th>
+      <th>Acties</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for arts in artsen %}
+    <tr>
+      <td>{{ arts.id }}</td>
+      <td>{{ arts.voornaam }}</td>
+      <td>
+        <a href="arts/{{ arts.id }}" class="btn btn-primary">Show</a>
+        {% if is_granted('ROLE_VERZEKERING') %}
+        <a href="arts/edit/{{ arts.id }}" class="btn btn-dark">Edit</a>
+        <a href="arts/delete/{{ arts.id }}" class="btn btn-danger delete-arts" data-id="{{ arts.id }}">Delete</a>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
-    <p><b>Geef de ID van de arts</b></p>
-
-    <form onSubmit="return process2();">
-        <input type="text" id="url2" name="query" />
-        <input type="submit" value="show" />
-    </form>
-    
-  {% else %}
-    <p>No artsen to display</p>
-  {% endif %}
+{% else %}
+<p>No artsen to display</p>
+{% endif %}
 {% endblock %}
 
 {% block javascripts %}
-  <script src="{{ asset('js/deleteRowFourth.js') }}"></script>
-  <script src="{{ asset('js/processInfo.js') }}"></script>
-  <!-- JQuery -->
- <script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
- <!-- Bootstrap core JavaScript -->
- <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/deleteRowFourth.js') }}"></script>
+<script src="{{ asset('js/processInfo.js') }}"></script>
+<!-- JQuery -->
+<script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+<!-- Bootstrap datatables JavaScript/CSS -->
+<link href="{{ asset('css/addons/datatables.min.css') }}" rel="stylesheet">
+<script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
+
+
+<script>
+  $(document).ready(function () {
+    $('#artsen').DataTable();
+    $('.dataTables_length').addClass('bs-select');
+  });
+</script>
 {% endblock %}

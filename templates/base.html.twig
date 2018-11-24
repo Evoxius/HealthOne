@@ -15,6 +15,10 @@
     <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/database.css') }}" rel="stylesheet">
+    <!-- MDBootstrap Datatables  -->
+    <link href="{{ asset('css/addons/datatables.min.css') }}" rel="stylesheet">
+
     {% endblock %}
 </head>
 
@@ -22,7 +26,7 @@
     {{ include('inc/navbar.html.twig') }}
     {% include 'flash_messages.html.twig' %}
 
-    <div class="container" style="margin-top:3%;">
+    <div class="container" style="margin-top:3%; margin-bottom:6%;">
         {% block body %}{% endblock %}
     </div>
     {% block javascripts %}
@@ -46,6 +50,8 @@
     <script src="{{ asset('js/owl.carousel.js') }}"></script>
     <script src="{{ asset('js/waypoints.min.js') }}"></script>
     <script src="{{ asset('js/wow.min.js') }}"></script>
+    <!-- MDBootstrap Datatables  -->
+    <script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
     {% endblock %}
     {{ include('inc/footer.html.twig') }}
 </body>

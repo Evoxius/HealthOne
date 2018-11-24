@@ -3,47 +3,54 @@
 {% block title %}HealthOne Recepten{% endblock %}
 
 {% block body %}
-  {% if recepten %}
-    <table id="recepten" class="table table-striped">
-      <thead>
-        <tr>
-          <th>Recept ID</th>
-          <th>Recept Opgehaald</th>
-          <th>Acties</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for recept in recepten %}
-          <tr>
-            <td>{{ recept.id }}</td>
-            <td>{{ recept.opgehaald }}</td>
-            <td>
-              <a href="recept/{{ recept.id }}" class="btn btn-primary">Show</a>
-              <a href="recept/edit/{{ recept.id }}" class="btn btn-dark">Edit</a>
-              <a href="recept/delete/{{ recept.id }}" class="btn btn-danger delete-recept" data-id="{{ recept.id }}">Delete</a>
-            </td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+{% if recepten %}
+<table id="recepten" class="table table-striped">
+  <thead>
+    <tr>
+      <th>Recept ID</th>
+      <th>Recept Opgehaald</th>
+      <th>Acties</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for recept in recepten %}
+    <tr>
+      <td>{{ recept.id }}</td>
+      <td>{{ recept.opgehaald }}</td>
+      <td>
+        <a href="recept/{{ recept.id }}" class="btn btn-primary">Show</a>
+        {% if is_granted('ROLE_APOTHEKER', 'ROLE_VERZEKERING') %}
+        <a href="recept/edit/{{ recept.id }}" class="btn btn-dark">Edit</a>
+        {% endif %}
+        {% if is_granted('ROLE_VERZEKERING') %}
+        <a href="recept/delete/{{ recept.id }}" class="btn btn-danger delete-recept" data-id="{{ recept.id }}">Delete</a>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
-    <p><b>Geef de ID van de recept</b></p>
-
-    <form onSubmit="return process3();">
-        <input type="text" id="url3" name="query" />
-        <input type="submit" value="show" />
-    </form>
-
-  {% else %}
-    <p>No recepten to display</p>
-  {% endif %}
+{% else %}
+<p>No recepten to display</p>
+{% endif %}
 {% endblock %}
 
 {% block javascripts %}
- <script src="{{ asset('js/deleteRowSecond.js') }}"></script>
-  <script src="{{ asset('js/processInfo.js') }}"></script>
-  <!-- JQuery -->
- <script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
- <!-- Bootstrap core JavaScript -->
- <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/deleteRowSecond.js') }}"></script>
+<!-- JQuery -->
+<script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+<!-- Bootstrap datatables JavaScript/CSS -->
+<link href="{{ asset('css/addons/datatables.min.css') }}" rel="stylesheet">
+<script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
+
+<script>
+  $(document).ready(function () {
+    $('#recepten').DataTable();
+    $('.dataTables_length').addClass('bs-select');
+  });
+</script>
+
 {% endblock %}
