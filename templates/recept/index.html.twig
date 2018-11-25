@@ -4,7 +4,7 @@
 
 {% block body %}
 {% if recepten %}
-<table id="recepten" class="table table-striped">
+<table id="recepten" class="table table-striped fadeInLeft animated" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInLeft; margin-top:20px;">
   <thead>
     <tr>
       <th>Recept ID</th>
@@ -23,7 +23,7 @@
         <a href="recept/edit/{{ recept.id }}" class="btn btn-dark" style="padding-right: 44px;">Edit</a>
         {% endif %}
         {% if is_granted('ROLE_VERZEKERING') %}
-        <a href="recept/delete/{{ recept.id }}" class="btn btn-danger delete-recept" data-id="{{ recept.id }}" style="padding-right:26px;">Delete</a>
+        <a href="#" id="delSecond" class="btn btn-danger delete-recept" data-id="{{ recept.id }}" style="padding-right:26px;">Delete</a>
         {% endif %}
       </td>
     </tr>
