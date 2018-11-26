@@ -50,8 +50,27 @@
     <script src="{{ asset('js/wow.min.js') }}"></script>
     <!-- MDBootstrap Datatables  -->
     <script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+     <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+        "palette": {
+            "popup": {
+            "background": "#000"
+            },
+            "button": {
+            "background": "transparent",
+            "text": "#f1d600",
+            "border": "#f1d600"
+            }
+        },
+        "position": "top"
+        })});
+        </script>
     {% endblock %}
     {{ include('inc/footer.html.twig') }}
+
 </body>
 
 </html>
