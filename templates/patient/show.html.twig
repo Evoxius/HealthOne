@@ -16,7 +16,7 @@
  <p><b>Stad: </b> {{ patient.stad }}</p>
  <p><b>Email: </b> {{ patient.email }}</p>
  <p><b>Telefoonnummer: </b> {{ patient.telefoonnummer }}</p>
- <p><b>Dokterid: </b> <a href="/arts/{{patient.dokterid}}">{{ patient.dokterid }}</a></p>
+ <p><b>Dokterid: </b> <a href="{{ asset('arts/')}}{{patient.dokterid}}">{{ patient.dokterid }}</a></p>
  <hr>
- <a href="/patient">Go Back</a>
+ <a href="{{ asset('patient')}}">Go Back</a>
 {% endblock %}

@@ -7,7 +7,7 @@ if (recepten) {
       if (confirm('Are you sure?')) {
         const id = e.target.getAttribute('data-id');
 
-        fetch(`/recept/delete/${id}`, {
+        fetch(`recept/delete/${id}`, {
           method: 'DELETE'
         }).then(res => window.location.reload());
       }
