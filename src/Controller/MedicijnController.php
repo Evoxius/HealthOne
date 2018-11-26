@@ -87,10 +87,6 @@
       $medicijn = $this->getDoctrine()->getRepository(Medicijn::class)->find($id);
 
       $form = $this->createFormBuilder($medicijn)
-      ->add('id', TextType::class, array(
-        'required' => false,
-        'attr' => array('class' => 'form-control')
-      ))
         ->add('naam', TextType::class, array('attr' => array('class' => 'form-control')))
         ->add('voordelen', TextareaType::class, array(
           'required' => false,

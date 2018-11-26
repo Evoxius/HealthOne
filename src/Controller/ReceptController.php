@@ -107,10 +107,6 @@
       $recept = $this->getDoctrine()->getRepository(Recept::class)->find($id);
 
       $form = $this->createFormBuilder($recept)
-      ->add('id', Texttype::class, array(
-        'required' => false,
-        'attr' => array('class' => 'form-control')
-      ))
         ->add('patientid', TextType::class, array('attr' => array('class' => 'form-control')))
         ->add('medicijnid', TextType::class, array(
           'required' => false,

@@ -115,10 +115,6 @@
       $patient = $this->getDoctrine()->getRepository(Patient::class)->find($id);
 
       $form = $this->createFormBuilder($patient)
-      ->add('id', Texttype::class, array(
-        'required' => false,
-        'attr' => array('class' => 'form-control')
-      ))
         ->add('voornaam', TextType::class, array('attr' => array('class' => 'form-control')))
         ->add('tussenvoegsel', TextType::class, array(
           'required' => false,
