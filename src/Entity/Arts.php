@@ -3,11 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArtsRepository")
  */
-class Arts
+class Arts implements UserInterface, \Serializable
 {
     /**
      * @ORM\Id()
@@ -15,6 +16,16 @@ class Arts
      * @ORM\Column(type="integer")
      */
     public $id;
+
+    /**
+     * @ORM\Column(type="string", length=60, unique=true)
+     */
+    private $username;
+
+    /**
+     * @ORM\Column(type="string", length=60)
+     */
+    private $password;
 
     /**
      * @ORM\Column(type="text", length=100)
@@ -64,6 +75,30 @@ class Arts
     // Getters & Setters
     public function getID() {
         return $this->id;
+    }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
     }
 
     public function getVoornaam() {
@@ -138,9 +173,35 @@ class Arts
         $this->telefoonnummer = $telefoonnummer;
     }
 
-    public function getUsername(): ?string
+    public function getRoles()
     {
-        return $this->username;
+        return [
+            'ROLE_ARTS'
+        ];
+    }
+
+    public function getSalt() {}
+
+    public function eraseCredentials() {}
+
+    public function serialize() 
+    {
+        return serialize([
+            $this->id,
+            $this->username,
+            $this->email,
+            $this->password
+        ]);
+    }
+
+    public function unserialize($string)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->email,
+            $this->password
+        ) = unserialize($string, ['allowed_classes' => false]);
     }
 
 }

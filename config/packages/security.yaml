@@ -3,6 +3,8 @@ security:
         Symfony\Component\Security\Core\User\User: plaintext
         App\Entity\User:
             algorithm: bcrypt  
+        App\Entity\Arts:
+            algorithm: bcrypt 
     providers:
         chain_provider:
             chain:
