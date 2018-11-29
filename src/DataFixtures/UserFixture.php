@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\User;
+use App\Entity\Arts;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -18,16 +18,23 @@ class UserFixture extends Fixture
 
     public function load(ObjectManager $manager)
     {
-    $user = new User();
-    $user->setUsername('arts');
+    $arts = new Arts();
+    $arts->setUsername('me');
 
-    $user->setPassword(
-        $this->encoder->encodePassword($user, 'qwerty')
+    $arts->setPassword(
+        $this->encoder->encodePassword($arts, 'qwerty')
     );
+    $arts->setVoornaam('Michael');
+    $arts->setTussenvoegsel('');
+    $arts->setAchternaam('Schaap');
+    $arts->setSpecialiteit('Iets');
+    $arts->setAdres('wegstraat');
+    $arts->setPostcode('2222 PX');
+    $arts->setStad('den haag');
+    $arts->setEmail('michaelschaap123@gmail.com');
+    $arts->setTelefoonnummer('06 25328754');
 
-    $user->setEmail('arts@gmail.com');
-
-    $manager->persist($user);
+    $manager->persist($arts);
 
     $manager->flush();
     }

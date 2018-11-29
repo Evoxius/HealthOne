@@ -11,7 +11,7 @@
    {% if is_granted('ROLE_APOTHEKER') %}
    <p>De apotheker kan hiermee recepten bekijken en de datum van ophalen makkelijk bepalen.</p>
    {% endif %}
-   {% if is_granted('ROLE_USER') %}
+   {% if is_granted('ROLE_ARTS') %}
    <p>De arts kan hiermee nieuwe recepten aanmaken en de informatie van hun patienten bekijken.</p>
    {% endif %}
    {% if is_granted('ROLE_VERZEKERING') %}

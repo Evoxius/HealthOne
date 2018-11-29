@@ -38,6 +38,8 @@
       $arts = new Arts();
 
       $form = $this->createFormBuilder($arts)
+      ->add('username', TextType::class, array('attr' => array('class' => 'form-control')))
+      ->add('password', TextType::class, array('attr' => array('class' => 'form-control')))
       ->add('voornaam', TextType::class, array('attr' => array('class' => 'form-control')))
       ->add('tussenvoegsel', TextType::class, array(
         'required' => false,
@@ -117,6 +119,8 @@
         'attr' => array('class' => 'form-control')
       ))
         ->add('voornaam', TextType::class, array('attr' => array('class' => 'form-control')))
+        ->add('username', TextType::class, array('attr' => array('class' => 'form-control')))
+        ->add('password', TextType::class, array('attr' => array('class' => 'form-control')))
         ->add('tussenvoegsel', TextType::class, array(
           'required' => false,
           'attr' => array('class' => 'form-control')

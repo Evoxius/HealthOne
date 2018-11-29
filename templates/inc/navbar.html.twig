@@ -16,7 +16,7 @@
 
     <!-- Links -->
     <ul class="navbar-nav mr-auto">
-      {% if is_granted('ROLE_USER') %}
+      {% if is_granted('IS_AUTHENTICATED_FULLY') %}
       <li class="nav-item">
         <a class="nav-link" href="{{ asset('home') }}">Home
         </a>
@@ -28,7 +28,7 @@
 
 
       <!-- Dropdown -->
-      {% if is_granted('ROLE_USER') %}
+      {% if is_granted('IS_AUTHENTICATED_FULLY') %}
       <li class="nav-item dropdown right">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">Beheer</a>
@@ -42,10 +42,7 @@
       {% endif %}
 
       <!-- Dropdown -->
-      {% if is_granted('ROLE_APOTHEKER', 'IS_AUTHENTICATED_ANONYMOUSLY') %}
-
-      {% else %}
-      {% if is_granted('ROLE_USER') %}
+      {% if is_granted('IS_AUTHENTICATED_FULLY') %}
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">New</a>
@@ -61,17 +58,17 @@
           {% endif %}
           {% if is_granted('ROLE_APOTHEKER') %}
 
-          {% else %}
+          {% endif %}
+          {% if is_granted('ROLE_ARTS', 'ROLE_VERZEKERING') %}
           <a class="dropdown-item" href="{{ asset('recept/new') }}">Nieuwe recept toevoegen</a>
           {% endif %}
         </div>
       </li>
-      {% endif %}
-      {% endif %}
     </ul>
+    {% endif %}
 
     <!-- Icon -->
-    {% if is_granted('ROLE_USER') %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
     <ul class="navbar-nav xl-auto nav-flex-icons dropright" style="margin-right:15%;">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown"
