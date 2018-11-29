@@ -15,15 +15,8 @@ class HomepageController extends AbstractController
      */
     public function index()
     {
-
         return $this->render('homepage/index.html.twig', [
             'controller_name' => 'HomepageController',
         ]);
-
-        /** @var \App\Entity\Arts $arts */
-        $arts = $this->getUser();
-
-        return new Response('<html><body>Hello</body></html> '.$arts->getVoornaam());
-        
     }
 }

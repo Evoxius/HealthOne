@@ -176,7 +176,8 @@ class Arts implements UserInterface, \Serializable
     public function getRoles()
     {
         return [
-            'ROLE_ARTS'
+            'ROLE_ARTS',
+            'ROLE_USER'
         ];
     }
 

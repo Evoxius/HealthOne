@@ -33,15 +33,32 @@
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">Beheer</a>
         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+          {% if is_granted('ROLE_VERZEKERING') %}
           <a class="dropdown-item" href="{{ asset('medicijn') }}">Medicijn beheer</a>
+          {% endif %}
+          {% if is_granted('ROLE_VERZEKERING') %}
           <a class="dropdown-item" href="{{ asset('arts') }}">Arts beheer</a>
+          {% endif %}
+          {% if is_granted('ROLE_VERZEKERING') %}
           <a class="dropdown-item" href="{{ asset('patient') }}">Patient beheer</a>
+          {% endif %}
+          {% if is_granted('ROLE_VERZEKERING') %}
           <a class="dropdown-item" href="{{ asset('recept') }}">Recept beheer</a>
+          {% endif %}
+          {% if is_granted('ROLE_ARTS') %}
+          <a class="dropdown-item" href="{{ asset('patient') }}">Patient beheer</a>
+          {% endif %}
+          {% if is_granted('ROLE_APOTHEKER') %}
+          <a class="dropdown-item" href="{{ asset('recept') }}">Recept beheer</a>
+          {% endif %}
         </div>
       </li>
       {% endif %}
 
       <!-- Dropdown -->
+      {% if is_granted('ROLE_APOTHEKER') %}
+
+      {% else %}
       {% if is_granted('IS_AUTHENTICATED_FULLY') %}
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -56,15 +73,16 @@
           {% if is_granted('ROLE_VERZEKERING') %}
           <a class="dropdown-item" href="{{ asset('patient/new') }}">Nieuwe patient toevoegen</a>
           {% endif %}
-          {% if is_granted('ROLE_APOTHEKER') %}
-
+          {% if is_granted('ROLE_VERZEKERING') %}
+          <a class="dropdown-item" href="{{ asset('recept/new') }}">Nieuwe recept toevoegen</a>
           {% endif %}
-          {% if is_granted('ROLE_ARTS', 'ROLE_VERZEKERING') %}
+          {% if is_granted('ROLE_ARTS') %}
           <a class="dropdown-item" href="{{ asset('recept/new') }}">Nieuwe recept toevoegen</a>
           {% endif %}
         </div>
       </li>
     </ul>
+    {% endif %}
     {% endif %}
 
     <!-- Icon -->
