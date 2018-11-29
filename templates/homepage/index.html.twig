@@ -6,19 +6,19 @@
 
 <div class="jumbotron fadeInLeft animated" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInLeft; margin-top:20px;">
   <h1 class="display-4">Welkom bij HealthOne</h1>
-  <p class="lead">De website is gemaakt zodat de medewerkers van ZilverenKruis op een makkelijke manier informatie kunnen beheren.</p>
+  <p class="lead">De website is gemaakt zodat de medewerkers van ZilverenKruis op een makkelijke manier informatie
+    kunnen beheren.</p>
   <hr class="my-4">
-   {% if is_granted('ROLE_APOTHEKER') %}
-   <p>De apotheker kan hiermee recepten bekijken en de datum van ophalen makkelijk bepalen.</p>
-   {% endif %}
-   {% if is_granted('ROLE_ARTS') %}
-   <p>De arts kan hiermee nieuwe recepten aanmaken en de informatie van hun patienten bekijken.</p>
-   {% endif %}
-   {% if is_granted('ROLE_VERZEKERING') %}
-   <p>De verzekeringsmedewerker kan hiermee de verschillende gebruikers beheren en ook alles doen.</p>
-   {% endif %}
+  {% if is_granted('ROLE_APOTHEKER') %}
+  <p>De apotheker kan hiermee recepten bekijken en de datum van ophalen makkelijk bepalen.</p>
+  {% endif %}
+  {% if is_granted('ROLE_ARTS') %}
+  <p>De arts kan hiermee nieuwe recepten aanmaken en de informatie van hun patienten bekijken.</p>
+  {% endif %}
+  {% if is_granted('ROLE_VERZEKERING') %}
+  <p>De verzekeringsmedewerker kan hiermee de verschillende gebruikers beheren en ook alles doen.</p>
+  {% endif %}
   <p class="lead">
   </p>
 </div>
 {% endblock %}
- 
