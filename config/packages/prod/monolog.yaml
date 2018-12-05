@@ -1,5 +1,11 @@
 monolog:
     handlers:
+        security:
+                level:  debug
+                type:   stream
+                path:   "%kernel.logs_dir%/security.log"
+                channels:   [security]
+
         main:
             type: fingers_crossed
             action_level: error

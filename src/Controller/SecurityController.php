@@ -21,12 +21,20 @@ class SecurityController extends Controller
 
         $lastUsername = $utils->getLastUsername();
 
+        $log = new Logger('Security');
+        $streamHandler=new StreamHandler('security.log.html', Logger::INFO);
+        $streamHandler->setFormatter(new \Monolog\Formatter\HtmlFormatter());
+        $log->pushHandler($streamHandler);
+  
+        $log->info('Gebruiker heeft ingelogd', array(
+            // include extra "context" info in your logs
+            'Username' => $lastUsername));
 
         return $this->render('security/login.html.twig', [
             'error'         => $error,
             'last_username' => $lastUsername
         ]);
-      
+
     }
 
     /**
